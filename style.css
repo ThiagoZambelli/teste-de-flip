@@ -1,0 +1,70 @@
+body{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 100vh;
+    flex-wrap: wrap;
+    background: var(--bg-frente);
+    color: var(--cor-texto);
+}
+:root{
+    --bg-costas:#2C3333;
+    --bg-frente: linear-gradient(180deg, rgba(46,79,79,1) 10%, rgba(203,228,222,1) 50%, rgba(46,79,79,1) 90%);;
+
+    --cor-texto:#2C3333;
+}
+
+.container, .container2{
+    height: 400px;
+    width: 220px;
+    perspective: 1000px;
+    color: var(--cor-texto);
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.alinhamento{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+.front, .back{
+    position: absolute;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    transition: all 1s ease;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 3px 3px 9px var(--bg-costas); 
+}
+.front{
+    transform: rotateY(0deg);
+    background :url(frente.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.back{
+    transform: rotateY(180deg);
+    background-color: var(--bg-costas);
+    background :url(costas.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.container:hover .front{
+    transform: rotatey(-180deg);
+}
+.container:hover .back{
+    transform: rotatey(0deg);
+}
+.container2:active .front{
+    transform: rotatey(-180deg);
+}
+.container2:active .back{
+    transform: rotatey(0deg);
+}
